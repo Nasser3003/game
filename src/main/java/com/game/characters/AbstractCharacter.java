@@ -1,16 +1,16 @@
 package com.game.characters;
 
-import com.game.scenarios.AbstractScenarios;
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 public abstract class AbstractCharacter {
-    private AbstractScenarios scenario;
     private String name;
     private int strength;
     private int wisdom;
     private int magic;
     private int expLevel;
+    @ToString.Exclude
     private String characterDescription;
     private int healthPoints = 100;
 
