@@ -3,8 +3,8 @@ package com.game;
 import com.game.characters.CharacterMage;
 import com.game.logic.SceneExecutor;
 import com.game.scenarios.ScenarioTheEnchantedForest;
-import com.game.strategy.SceneStrategy;
-import com.game.strategy.StrategyTheEnchantedForest;
+import com.game.scenarios.strategy.SceneStrategy;
+import com.game.scenarios.strategy.StrategyTheEnchantedForest;
 
 public class Main {
 
@@ -15,8 +15,7 @@ public class Main {
 		CharacterMage mageNasser = new CharacterMage("Nasser");
 
 		SceneExecutor executor = new SceneExecutor(sceneStrategy, mageScenario, mageNasser);
-		int sceneResponse = executor.execute();
-		System.out.println(mageNasser);
+		executor.execute();
 
 	}
 }

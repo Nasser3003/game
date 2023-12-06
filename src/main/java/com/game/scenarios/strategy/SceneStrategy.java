@@ -1,4 +1,4 @@
-package com.game.strategy;
+package com.game.scenarios.strategy;
 
 import java.util.List;
 
