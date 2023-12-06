@@ -1,4 +1,4 @@
-package com.game.logic;
+package com.game.engine;
 
 public class ProgressLogic {
 }

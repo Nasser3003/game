@@ -1,29 +1,31 @@
-package com.game.logic;
+package com.game.engine;
 
 import com.game.characters.AbstractCharacter;
 import com.game.characters.CharacterMage;
 import com.game.scenarios.AbstractScenarios;
-import com.game.scenarios.strategy.SceneStrategy;
 import com.game.utils.PrintDashes;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.List;
 import java.util.Scanner;
 @Data
 @AllArgsConstructor
-public class SceneExecutor {
-    private SceneStrategy strategy;
+public class GameEngine {
     private AbstractScenarios scenario;
     private AbstractCharacter character;
 
-    public void execute() {
+    public void play() {
         int userChoice = 0;
         System.out.println(scenario.getScenarioDescription());
         PrintDashes.print50Dashes();
 
-        scenario.setOptionsToChooseFrom(strategy.mageStrategy());
-        scenario.getOptionsToChooseFrom().forEach(System.out::println);
-        SceneStrategy.choicesFourFiveSix().forEach(System.out::println);
+        List<String> options = scenario.getOptionsToChooseWarrior();
+        if (character instanceof CharacterMage)
+            options = scenario.getOptionsToChooseMage();
+
+        options.forEach(System.out::println);
+        AbstractScenarios.choicesFourFiveSix().forEach(System.out::println);
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -31,8 +33,8 @@ public class SceneExecutor {
 
             if (scanner.hasNextInt()) userChoice = scanner.nextInt();
             if (userChoice == 4) System.out.println(character);
-//            if (userChoice == 5); // TODO SAVE
-            if (userChoice == 6) return ; // TODO EXIT
+            if (userChoice == 5) return; // TODO    SAVE
+            if (userChoice == 6) return; // TODO    EXIT
 
             if (userChoice > 0 && userChoice < 4)
                 break;
@@ -45,8 +47,9 @@ public class SceneExecutor {
     }
 
     private void pointsAdjuster(int userChoice) {
-        int[][] points = strategy.warriorStrategyPoints();
-        if (character instanceof CharacterMage) points = strategy.mageStrategyPoints();
+        int[][] points = scenario.getPointsArrayWarrior();
+
+        if (character instanceof CharacterMage) points = scenario.getPointsArrayMage();
 
         int currStrength = character.getStrength();
         int currMagic = character.getMagic();

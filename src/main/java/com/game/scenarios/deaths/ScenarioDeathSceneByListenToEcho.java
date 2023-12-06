@@ -1,4 +1,6 @@
-package com.game.scenarios;
+package com.game.scenarios.deaths;
+
+import com.game.scenarios.AbstractScenarios;
 
 public class ScenarioDeathSceneByListenToEcho extends AbstractScenarios {
     {
