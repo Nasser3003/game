@@ -23,6 +23,7 @@ public class SceneExecutor {
 
         scenario.setOptionsToChooseFrom(strategy.mageStrategy());
         scenario.getOptionsToChooseFrom().forEach(System.out::println);
+        SceneStrategy.choicesFourFiveSix().forEach(System.out::println);
 
         Scanner scanner = new Scanner(System.in);
         while (true) {

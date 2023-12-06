@@ -6,27 +6,21 @@ import java.util.List;
 public class StrategyTheEnchantedForest implements SceneStrategy {
     @Override
     public List<String> warriorStrategy() {
-        {
-            List<String> options = new ArrayList<>();
+        List<String> options = new ArrayList<>();
 
-            options.add("1) Make a path: Unsheathe your mighty sword and charge straight ahead" +
-                    ", cutting through the dense vegetation." +
-                    " Trust your instincts and confront whatever mystical creatures may lie in your path.");
+        options.add("1) Make a path: Unsheathe your mighty sword and charge straight ahead" +
+                ", cutting through the dense vegetation." +
+                " Trust your instincts and confront whatever mystical creatures may lie in your path.");
 
-            options.add("2) Follow the Whispering Breeze: Pay attention to the subtle cues in the air." +
-                    " Listen to the rustling leaves and follow the direction of the gentle breeze." +
-                    " Nature might guide you through the forest in a way that connects you with its mystical essence.");
+        options.add("2) Follow the Whispering Breeze: Pay attention to the subtle cues in the air." +
+                " Listen to the rustling leaves and follow the direction of the gentle breeze." +
+                " Nature might guide you through the forest in a way that connects you with its mystical essence.");
 
-            options.add("3) Meditate at the Crossroads: Sit down at the crossroads, close your eyes, and enter a meditative state." +
-                    " Clear your mind and let the energy of the forest flow through you. When you open your eyes," +
-                    " the path that resonates with your inner self may become apparent." +
-                    " Trust your intuition to guide you on this mystical journey.");
-
-            options.add("4) Check your stats!.");
-            options.add("5) Save!.");
-            options.add("6) Exit!.");
-            return options;
-        }
+        options.add("3) Meditate at the Crossroads: Sit down at the crossroads, close your eyes, and enter a meditative state." +
+                " Clear your mind and let the energy of the forest flow through you. When you open your eyes," +
+                " the path that resonates with your inner self may become apparent." +
+                " Trust your intuition to guide you on this mystical journey.");
+        return options;
     }
 
     @Override
@@ -47,10 +41,6 @@ public class StrategyTheEnchantedForest implements SceneStrategy {
 
         options.add("3) Runic Teleportation: Inscribe ancient runes on the ground and teleport to a seemingly safer location." +
                 " Be cautious, as the teleportation may lead you to an unfamiliar part of the forest with its own set of challenges.");
-
-        options.add("4) Check your stats!.");
-        options.add("5) Save!.");
-        options.add("6) Exit!.");
         return options;
     }
 
