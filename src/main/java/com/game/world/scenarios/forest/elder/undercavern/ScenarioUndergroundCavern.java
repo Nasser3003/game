@@ -1,6 +1,6 @@
-package com.game.scenarios.forest.elder.undercavern;
+package com.game.world.scenarios.forest.elder.undercavern;
 
-import com.game.scenarios.AbstractScenarios;
+import com.game.world.scenarios.AbstractScenarios;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class ScenarioUndergroundCavern extends AbstractScenarios {
         List<String> warriorOptions = new ArrayList<>();
         warriorOptions.add("1) Examine the phosphorescent fungi closely to see if they hold any clues or properties.");
         warriorOptions.add("2) Listen closely to the echoes in the cavern to discern any patterns or clues about the environment.");
-        warriorOptions.add("3) Draw your sword and advance stealthily, staying alert for any signs of danger.");
+        warriorOptions.add("3) Draw your sword and advance, staying alert for any signs of danger.");
 
         List<String> mageOptions = new ArrayList<>();
         mageOptions.add("1) Examine the phosphorescent fungi closely to see if they hold any clues or properties.");

@@ -1,6 +1,6 @@
-package com.game.scenarios.forest.elder;
+package com.game.world.scenarios.forest.elder;
 
-import com.game.scenarios.AbstractScenarios;
+import com.game.world.scenarios.AbstractScenarios;
 
 import java.util.ArrayList;
 import java.util.List;

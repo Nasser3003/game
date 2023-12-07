@@ -1,13 +1,11 @@
-package com.game.scenarios;
+package com.game.world.scenarios;
 
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Generated;
 import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Data
 public abstract class AbstractScenarios {

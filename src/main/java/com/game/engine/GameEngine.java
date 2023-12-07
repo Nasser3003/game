@@ -1,9 +1,9 @@
 package com.game.engine;
 
 import com.game.characters.AbstractCharacter;
-import com.game.characters.CharacterMage;
-import com.game.scenarios.AbstractScenarios;
 import com.game.utils.PrintDashes;
+import com.game.world.World;
+import com.game.world.scenarios.AbstractScenarios;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -12,24 +12,35 @@ import java.util.Scanner;
 @Data
 @AllArgsConstructor
 public class GameEngine {
-    private AbstractScenarios scenario;
+    private World world;
     private AbstractCharacter character;
+    private boolean isMageCharacter;
 
     public void play() {
+        Scanner scanner = new Scanner(System.in);
         int userChoice = 0;
-        System.out.println(scenario.getScenarioDescription());
+
+        // printing the scene
+        System.out.println(world.getCurrScene().getScenarioDescription());
         PrintDashes.print50Dashes();
 
-        List<String> options = scenario.getOptionsToChooseWarrior();
-        if (character instanceof CharacterMage)
-            options = scenario.getOptionsToChooseMage();
+        // options for the character
+        List<String> options = world.getCurrScene().getOptionsToChooseWarrior();
+        if (isMageCharacter)
+            options = world.getCurrScene().getOptionsToChooseMage();
 
+        // return recursion
+        if (options == null) {
+            scanner.close();
+            return;
+        }
+
+        // print character choices and then static choices
         options.forEach(System.out::println);
         AbstractScenarios.choicesFourFiveSix().forEach(System.out::println);
 
-        Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Enter your choice (1-6): ");
+            System.out.print("Enter your choice (1-6): ");
 
             if (scanner.hasNextInt()) userChoice = scanner.nextInt();
             if (userChoice == 4) System.out.println(character);
@@ -40,16 +51,15 @@ public class GameEngine {
                 break;
             else scanner.nextLine();
         }
-        scanner.close();
         pointsAdjuster(userChoice);
 
-
+        play();
     }
 
     private void pointsAdjuster(int userChoice) {
-        int[][] points = scenario.getPointsArrayWarrior();
+        int[][] points = world.getCurrScene().getPointsArrayWarrior();
 
-        if (character instanceof CharacterMage) points = scenario.getPointsArrayMage();
+        if (isMageCharacter) points = world.getCurrScene().getPointsArrayMage();
 
         int currStrength = character.getStrength();
         int currMagic = character.getMagic();
@@ -62,23 +72,23 @@ public class GameEngine {
                 character.setMagic(currMagic + points[0][1]);
                 character.setWisdom(currWisdom + points[0][2]);
                 character.setHealthPoints(currHP + points[0][3]);
+                world.setCurrScene(world.getCurrScene().getChildren().get(0));
                 break;
             case 2:
                 character.setStrength(currStrength + points[1][0]);
                 character.setMagic(currMagic + points[1][1]);
                 character.setWisdom(currWisdom + points[1][2]);
                 character.setHealthPoints(currHP + points[1][3]);
+                world.setCurrScene(world.getCurrScene().getChildren().get(1));
                 break;
             case 3:
                 character.setStrength(currStrength + points[2][0]);
                 character.setMagic(currMagic + points[2][1]);
                 character.setWisdom(currWisdom + points[2][2]);
                 character.setHealthPoints(currHP + points[2][3]);
+                world.setCurrScene(world.getCurrScene().getChildren().get(2));
         }
 
         character.setExpLevel(character.getExpLevel() + 10);
-
-        if (character.getHealthPoints() < 1)
-            System.out.println("You Died!");
     }
 }

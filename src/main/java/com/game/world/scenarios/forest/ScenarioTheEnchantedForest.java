@@ -1,6 +1,6 @@
-package com.game.scenarios.forest;
+package com.game.world.scenarios.forest;
 
-import com.game.scenarios.AbstractScenarios;
+import com.game.world.scenarios.AbstractScenarios;
 
 import java.util.ArrayList;
 import java.util.List;
