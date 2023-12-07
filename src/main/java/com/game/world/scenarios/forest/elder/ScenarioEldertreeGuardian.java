@@ -1,10 +1,13 @@
-package com.game.scenarios;
+package com.game.scenarios.forest.elder;
+
+import com.game.scenarios.AbstractScenarios;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ScenarioEldertreeGuardian extends AbstractScenarios {
-    public ScenarioEldertreeGuardian() {
+    public ScenarioEldertreeGuardian(long id) {
+        this.setId(id);
         this.setScenarioDescription("You unsheathe your sword, charging through the dense vegetation. Suddenly," +
                 " you confront the Eldertree Guardian, a wise, ancient tree." +
                 " It challenges you with the Riddles of the Whispering Leaves." +

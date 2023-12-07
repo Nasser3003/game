@@ -1,11 +1,13 @@
-package com.game.scenarios;
+package com.game.scenarios.forest;
+
+import com.game.scenarios.AbstractScenarios;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ScenarioTheEnchantedForest extends AbstractScenarios {
-    public ScenarioTheEnchantedForest() {
-
+    public ScenarioTheEnchantedForest(long id) {
+        this.setId(id);
         this.setScenarioDescription("Amidst the towering trees and glowing mushrooms," +
                 " you stand in a dense, mystical forest, enveloped by an ethereal aura." +
                 " The very air seems to pulse with otherworldly energy," +
@@ -15,7 +17,7 @@ public class ScenarioTheEnchantedForest extends AbstractScenarios {
 
         List<String> mageOptions = new ArrayList<>();
         mageOptions.add("1) Dark Arcane Conduit:" +
-                " Embrace the dark side of magic and open a conduit to channel forbidden arcane energy." +
+                " Embrace the dark s ide of magic and open a conduit to channel forbidden arcane energy." +
                 " Blast through the vegetation," +
                 " but beware of the consequences as this dark magic may attract malevolent creatures.");
 
@@ -49,4 +51,5 @@ public class ScenarioTheEnchantedForest extends AbstractScenarios {
         this.setPointsArrayWarrior(new int[][] { {20, 0, 0, -50}, {15, 0, 5, -40}, {0, 0, 10, 30} });
         this.setPointsArrayMage(new int[][] { {0, 20, 0, -50}, {0, 15, 5, -40}, {0, 0, 10, 30} });
     }
+
 }

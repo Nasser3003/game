@@ -1,11 +1,14 @@
-package com.game.scenarios;
+package com.game.scenarios.forest.elder.undercavern;
+
+import com.game.scenarios.AbstractScenarios;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ScenarioUndergroundCavern extends AbstractScenarios {
 
-    public ScenarioUndergroundCavern() {
+    public ScenarioUndergroundCavern(long id) {
+        this.setId(id);
         this.setScenarioDescription("Choosing \"Echo\" triggers a hidden chasm, plunging you into an underground cavern." +
                 " Phosphorescent fungi light the rocky walls as mysterious creatures lurk. The path ahead is uncertain," +
                 " and danger echoes in the darkness.");

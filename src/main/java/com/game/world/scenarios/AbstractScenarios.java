@@ -2,10 +2,12 @@ package com.game.scenarios;
 
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Generated;
 import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 public abstract class AbstractScenarios {
@@ -18,18 +20,28 @@ public abstract class AbstractScenarios {
     }
 
     @Setter(AccessLevel.PROTECTED)
-    protected String scenarioDescription;
+    private long id;
 
     @Setter(AccessLevel.PROTECTED)
-    protected List<String> optionsToChooseMage;
+    private String scenarioDescription;
 
     @Setter(AccessLevel.PROTECTED)
-    protected List<String> optionsToChooseWarrior;
+    private List<String> optionsToChooseMage;
 
     @Setter(AccessLevel.PROTECTED)
-    protected int[][] pointsArrayMage;
+    private List<String> optionsToChooseWarrior;
 
     @Setter(AccessLevel.PROTECTED)
-    protected int[][] pointsArrayWarrior;
+    private int[][] pointsArrayMage;
+
+    @Setter(AccessLevel.PROTECTED)
+    private int[][] pointsArrayWarrior;
+
+    @Setter(AccessLevel.NONE)
+    private List<AbstractScenarios> children = new ArrayList<>();
+
+    public void addChild(AbstractScenarios child) {
+        children.add(child);
+    }
 
 }
