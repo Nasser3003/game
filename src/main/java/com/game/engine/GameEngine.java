@@ -27,7 +27,7 @@ public class GameEngine {
 
         // printing the scene
         System.out.println(world.getCurrScene().getScenarioDescription());
-        PrintDashes.print50Dashes();
+        PrintDashes.printDashes();
 
         // options for the character
         List<String> options = world.getCurrScene().getOptionsToChooseWarrior();
@@ -45,27 +45,31 @@ public class GameEngine {
         AbstractScene.choicesFourFiveSix().forEach(System.out::println);
 
         while (true) {
-            System.out.print("Enter your choice (1-8): ");
+            System.out.print("Enter your choice (1-7): ");
 
             if (scanner.hasNextInt()) userChoice = scanner.nextInt();
-//            if (userChoice == 5) restoreProgress("save", character);   //saveProgress(character); // TODO    SAVE
-            if (userChoice == 6) {
+            if (userChoice == 4) {
+                character = restoreProgress("Character", AbstractCharacter.class);
+                world.setCurrScene(restoreProgress("Map", AbstractScene.class));
+            }
+            if (userChoice == 5) {
                 saveProgress("Character", character);
                 saveProgress("Map", world.getCurrScene());
+                PrintDashes.printDashes(25);
             }
-            if (userChoice == 7) System.out.println(character);
-            if (userChoice == 8) return;
+            if (userChoice == 6) System.out.println(character);
+            if (userChoice == 7) return;
 
             if (userChoice > 0 && userChoice < 5)
                 break;
             else scanner.nextLine();
         }
-        pointsAdjuster(userChoice);
+        executeScene(userChoice);
 
         play();
     }
 
-    private void pointsAdjuster(int userChoice) {
+    private void executeScene(int userChoice) {
         int[][] points = world.getCurrScene().getPointsArrayWarrior();
 
         if (isMageCharacter) points = world.getCurrScene().getPointsArrayMage();
@@ -98,7 +102,7 @@ public class GameEngine {
                 world.setCurrScene(world.getCurrScene().getChildren().get(2));
         }
 
-        character.setExpLevel(character.getExpLevel() + 10);
+        character.setExpLevel(character.getExpLevel() + 1);
     }
     public static void saveProgress(String fileName, Object obj) {
         try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Paths.get("saves", fileName)))) {
@@ -110,6 +114,8 @@ public class GameEngine {
     }
     public static <T> T restoreProgress(String fileName, Class<T> T) {
         try (ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(Paths.get("saves", fileName)))) {
+            System.out.println(fileName +" restored successfully.");
+            PrintDashes.printDashes(25);
             return (T) (ois.readObject());
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

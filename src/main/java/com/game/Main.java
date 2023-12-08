@@ -24,7 +24,6 @@ import com.game.world.scenarios.forest.spring.SceneEnchantedSpring;
 public class Main {
 
 	public static void main(String[] args) {
-
 		// creating scenes
 		AbstractScene sceneRoot = new SceneEnchantedForest(0); // parent
 
@@ -46,7 +45,6 @@ public class Main {
 		AbstractScene sceneDeathByClimbing = new SceneDeathByClimbing(14);
 		AbstractScene sceneDeathByInvestigating = new SceneDeathByInvestigating(15);
 
-
 		// adding child scenes accessing child using [index]
 		sceneRoot.addChild(sceneElder);
 		sceneRoot.addChild(sceneBreeze);
@@ -67,7 +65,6 @@ public class Main {
 		sceneBreeze.addChild(sceneDeathByInvestigating);
 		sceneBreeze.addChild(sceneDeathByClimbing);
 
-
 		// creating the world to access anywhere on the map if u want accessing map using KEY(id)
 		World world = new World();
 		world.addScene(sceneRoot);
@@ -83,8 +80,6 @@ public class Main {
 		// running the game
 		GameEngine game = new GameEngine(world, mageNasser, true);
 		game.play();
-
-
 
 	}
 }

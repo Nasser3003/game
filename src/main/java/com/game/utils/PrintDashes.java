@@ -1,10 +1,13 @@
 package com.game.utils;
 
 public class PrintDashes {
-    public static void print50Dashes() {
-        for (int i = 0; i < 50; i++) {
+    public static void printDashes(int n) {
+        for (int i = 0; i < n; i++) {
             System.out.print("-");
         }
         System.out.println();
+    }
+    public static void printDashes() {
+        printDashes(50);
     }
 }
