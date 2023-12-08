@@ -1,14 +1,14 @@
 package com.game.world.scenarios.forest.elder;
 
-import com.game.world.scenarios.AbstractScenarios;
+import com.game.world.scenarios.AbstractScene;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScenarioEldertreeGuardian extends AbstractScenarios {
-    public ScenarioEldertreeGuardian(long id) {
-        this.setId(id);
-        this.setScenarioDescription("You unsheathe your sword, charging through the dense vegetation. Suddenly," +
+public class SceneEldertreeGuardian extends AbstractScene {
+    public SceneEldertreeGuardian(long id) {
+        super(id);
+        this.setScenarioDescription("As you charge through the dense vegetation. Suddenly," +
                 " you confront the Eldertree Guardian, a wise, ancient tree." +
                 " It challenges you with the Riddles of the Whispering Leaves." +
                 " The path transforms into floating platforms with glowing leaves bearing riddles.\n" +
@@ -18,7 +18,6 @@ public class ScenarioEldertreeGuardian extends AbstractScenarios {
         commonOptions.add("1) Music");
         commonOptions.add("2) Echo");
         commonOptions.add("3) Shadow");
-
 
         this.setOptionsToChooseWarrior(commonOptions);
         this.setOptionsToChooseMage(commonOptions);

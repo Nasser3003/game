@@ -1,11 +1,11 @@
 package com.game.world.scenarios.forest.elder.undercavern.deaths;
 
 
-import com.game.world.scenarios.AbstractScenarios;
+import com.game.world.scenarios.AbstractScene;
 
-public class ScenarioDeathByExamineFungi extends AbstractScenarios {
-    public ScenarioDeathByExamineFungi(long id) {
-        this.setId(id);
+public class SceneDeathByExamineFungi extends AbstractScene {
+    public SceneDeathByExamineFungi(long id) {
+        super(id);
         this.setScenarioDescription("As you bend down to closely examine the phosphorescent fungi," +
                 " a subtle but deadly toxin is released into the air. Unbeknownst to you," +
                 " these seemingly harmless fungi are actually lethal when disturbed." +

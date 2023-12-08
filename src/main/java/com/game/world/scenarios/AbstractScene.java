@@ -4,17 +4,23 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
-public abstract class AbstractScenarios {
+public abstract class AbstractScene implements Serializable {
     public static List<String> choicesFourFiveSix() {
         List<String> options = new ArrayList<>();
-        options.add("4) Check your stats!.");
-        options.add("5) Save!.");
-        options.add("6) Exit!.");
+        options.add("4) Restore");
+        options.add("6) Save");
+        options.add("7) Check your stats");
+        options.add("8) Exit");
         return options;
+    }
+
+    public AbstractScene(long id) {
+        this.id = id;
     }
 
     @Setter(AccessLevel.PROTECTED)
@@ -36,9 +42,9 @@ public abstract class AbstractScenarios {
     private int[][] pointsArrayWarrior;
 
     @Setter(AccessLevel.NONE)
-    private List<AbstractScenarios> children = new ArrayList<>();
+    private List<AbstractScene> children = new ArrayList<>();
 
-    public void addChild(AbstractScenarios child) {
+    public void addChild(AbstractScene child) {
         children.add(child);
     }
 

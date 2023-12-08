@@ -1,13 +1,13 @@
 package com.game.world.scenarios.forest;
 
-import com.game.world.scenarios.AbstractScenarios;
+import com.game.world.scenarios.AbstractScene;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScenarioTheEnchantedForest extends AbstractScenarios {
-    public ScenarioTheEnchantedForest(long id) {
-        this.setId(id);
+public class SceneEnchantedForest extends AbstractScene {
+    public SceneEnchantedForest(long id) {
+        super(id);
         this.setScenarioDescription("Amidst the towering trees and glowing mushrooms," +
                 " you stand in a dense, mystical forest, enveloped by an ethereal aura." +
                 " The very air seems to pulse with otherworldly energy," +
@@ -16,7 +16,7 @@ public class ScenarioTheEnchantedForest extends AbstractScenarios {
                 " each shrouded in mystery and potential peril.");
 
         List<String> mageOptions = new ArrayList<>();
-        mageOptions.add("1) Dark Arcane Conduit:" +
+        mageOptions.add("1) Make a path:" +
                 " Embrace the dark s ide of magic and open a conduit to channel forbidden arcane energy." +
                 " Blast through the vegetation," +
                 " but beware of the consequences as this dark magic may attract malevolent creatures.");
@@ -25,13 +25,14 @@ public class ScenarioTheEnchantedForest extends AbstractScenarios {
                 " Listen to the rustling leaves and follow the direction of the gentle breeze." +
                 " Nature might guide you through the forest in a way that connects you with its mystical essence.");
 
-        mageOptions.add("3) Runic Teleportation:" +
-                " Inscribe ancient runes on the ground and teleport to a seemingly safer location." +
-                " Be cautious," +
-                " as the teleportation may lead you to an unfamiliar part of the forest with its own set of challenges.");
+        mageOptions.add("3) Meditate at the Crossroads: Sit down at the crossroads," +
+                " close your eyes, and enter a meditative state." +
+                " Clear your mind and let the energy of the forest flow through you. When you open your eyes," +
+                " the path that resonates with your inner self may become apparent." +
+                " Trust your intuition to guide you on this mystical journey.");
 
         List<String> warriorOptions = new ArrayList<>();
-        warriorOptions.add("1) Make a path: Unsheathe your mighty sword and charge straight ahead" +
+        warriorOptions.add("1) Make a path: fire a ball of fire unleashing your mighty magical prowess" +
                 ", cutting through the dense vegetation." +
                 " Trust your instincts and confront whatever mystical creatures may lie in your path.");
 

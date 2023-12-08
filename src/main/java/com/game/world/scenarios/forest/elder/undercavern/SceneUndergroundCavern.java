@@ -1,14 +1,14 @@
 package com.game.world.scenarios.forest.elder.undercavern;
 
-import com.game.world.scenarios.AbstractScenarios;
+import com.game.world.scenarios.AbstractScene;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScenarioUndergroundCavern extends AbstractScenarios {
+public class SceneUndergroundCavern extends AbstractScene {
 
-    public ScenarioUndergroundCavern(long id) {
-        this.setId(id);
+    public SceneUndergroundCavern(long id) {
+        super(id);
         this.setScenarioDescription("Choosing \"Echo\" triggers a hidden chasm, plunging you into an underground cavern." +
                 " Phosphorescent fungi light the rocky walls as mysterious creatures lurk. The path ahead is uncertain," +
                 " and danger echoes in the darkness.");
@@ -26,7 +26,9 @@ public class ScenarioUndergroundCavern extends AbstractScenarios {
         this.setOptionsToChooseWarrior(warriorOptions);
         this.setOptionsToChooseMage(mageOptions);
 
-        this.setPointsArrayWarrior(new int[][] { {20, 0, 0, -50}, {15, 0, 5, -40}, {0, 0, 10, 30} });
-        this.setPointsArrayMage(new int[][] { {0, 20, 0, -50}, {0, 15, 5, -40}, {0, 0, 10, 30} });
+        this.setPointsArrayWarrior(new int[][] { {-20, 30, -10, 45}, {5, -15, 25, -40}, {-35, 10, 15, 20} });
+        this.setPointsArrayMage(new int[][] { {-5, 40, -30, 0}, {25, 15, -5, 30}, {-10, 20, 10, -25} });
+
+
     }
 }

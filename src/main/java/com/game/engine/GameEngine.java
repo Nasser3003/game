@@ -3,10 +3,15 @@ package com.game.engine;
 import com.game.characters.AbstractCharacter;
 import com.game.utils.PrintDashes;
 import com.game.world.World;
-import com.game.world.scenarios.AbstractScenarios;
+import com.game.world.scenarios.AbstractScene;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
 @Data
@@ -37,17 +42,21 @@ public class GameEngine {
 
         // print character choices and then static choices
         options.forEach(System.out::println);
-        AbstractScenarios.choicesFourFiveSix().forEach(System.out::println);
+        AbstractScene.choicesFourFiveSix().forEach(System.out::println);
 
         while (true) {
-            System.out.print("Enter your choice (1-6): ");
+            System.out.print("Enter your choice (1-8): ");
 
             if (scanner.hasNextInt()) userChoice = scanner.nextInt();
-            if (userChoice == 4) System.out.println(character);
-            if (userChoice == 5) return; // TODO    SAVE
-            if (userChoice == 6) return; // TODO    EXIT
+//            if (userChoice == 5) restoreProgress("save", character);   //saveProgress(character); // TODO    SAVE
+            if (userChoice == 6) {
+                saveProgress("Character", character);
+                saveProgress("Map", world.getCurrScene());
+            }
+            if (userChoice == 7) System.out.println(character);
+            if (userChoice == 8) return;
 
-            if (userChoice > 0 && userChoice < 4)
+            if (userChoice > 0 && userChoice < 5)
                 break;
             else scanner.nextLine();
         }
@@ -90,5 +99,21 @@ public class GameEngine {
         }
 
         character.setExpLevel(character.getExpLevel() + 10);
+    }
+    public static void saveProgress(String fileName, Object obj) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Paths.get("saves", fileName)))) {
+            oos.writeObject(obj);
+            System.out.println(fileName +" saved successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static <T> T restoreProgress(String fileName, Class<T> T) {
+        try (ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(Paths.get("saves", fileName)))) {
+            return (T) (ois.readObject());
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
