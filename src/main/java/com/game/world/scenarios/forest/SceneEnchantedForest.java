@@ -16,10 +16,9 @@ public class SceneEnchantedForest extends AbstractScene {
                 " each shrouded in mystery and potential peril.");
 
         List<String> mageOptions = new ArrayList<>();
-        mageOptions.add("1) Make a path:" +
-                " Embrace the dark s ide of magic and open a conduit to channel forbidden arcane energy." +
-                " Blast through the vegetation," +
-                " but beware of the consequences as this dark magic may attract malevolent creatures.");
+        mageOptions.add("1) Make a path: fire a ball of fire unleashing your mighty magical prowess" +
+                ", cutting through the dense vegetation." +
+                " Trust your instincts and confront whatever mystical creatures may lie in your path.");
 
         mageOptions.add("2) Follow the Whispering Breeze: Pay attention to the subtle cues in the air." +
                 " Listen to the rustling leaves and follow the direction of the gentle breeze." +
@@ -32,9 +31,10 @@ public class SceneEnchantedForest extends AbstractScene {
                 " Trust your intuition to guide you on this mystical journey.");
 
         List<String> warriorOptions = new ArrayList<>();
-        warriorOptions.add("1) Make a path: fire a ball of fire unleashing your mighty magical prowess" +
-                ", cutting through the dense vegetation." +
-                " Trust your instincts and confront whatever mystical creatures may lie in your path.");
+        warriorOptions.add("1) Make a path: Take a bold step forward," +
+                " wielding your mighty sword with unwavering determination." +
+                " Swing it skillfully, cutting through the thick vegetation that obstructs your way." +
+                " Trust your instincts and be prepared to face any lurking mystical creatures along your path.");
 
         warriorOptions.add("2) Follow the Whispering Breeze: Pay attention to the subtle cues in the air." +
                 " Listen to the rustling leaves and follow the direction of the gentle breeze." +

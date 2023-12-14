@@ -1,6 +1,8 @@
 package com.game;
 
+import com.game.characters.AbstractCharacter;
 import com.game.characters.CharacterMage;
+import com.game.characters.CharacterWarrior;
 import com.game.engine.GameEngine;
 import com.game.world.scenarios.AbstractScene;
 import com.game.world.scenarios.forest.SceneEnchantedForest;
@@ -20,6 +22,8 @@ import com.game.world.scenarios.forest.spring.Deaths.SceneDeathByCuriosity;
 import com.game.world.scenarios.forest.spring.Deaths.SceneDeathByHuntingGrove;
 import com.game.world.scenarios.forest.spring.Deaths.SceneDeathBySwimming;
 import com.game.world.scenarios.forest.spring.SceneEnchantedSpring;
+
+import java.util.Scanner;
 
 public class Main {
 
@@ -74,12 +78,39 @@ public class Main {
 		world.addScene(sceneUndergroundCavern);
 
 		// creating characters
-		CharacterMage mageNasser = new CharacterMage("Mage Nasser");
-		// CharacterWarrior warriorNasser = new CharacterWarrior("Warrior Nasser");
+		AbstractCharacter createdCharacter = chooseCharacter();
 
 		// running the game
-		GameEngine game = new GameEngine(world, mageNasser, true);
+		GameEngine game = new GameEngine(world, createdCharacter, createdCharacter instanceof CharacterMage);
 		game.play();
 
 	}
+	private static AbstractCharacter chooseCharacter() {
+		Scanner scanner = new Scanner(System.in);
+		int userChoice = 0;
+
+		while (true) {
+			System.out.println("Choose your character:");
+			System.out.println("1) A battle-hardened warrior," +
+					" clad in formidable armor, exudes strength and experience," +
+					" their gaze reflecting the scars of countless conflicts. ");
+			System.out.println("2) A mystic figure," +
+					" adorned in shimmering robes," +
+					" emanates an aura of arcane power, their eyes aglow with the secrets of the universe.");
+			if (scanner.hasNextInt()) userChoice = scanner.nextInt();
+			scanner.nextLine();
+			switch (userChoice) {
+				case 1:
+					System.out.print("Enter Character name: ");
+					String Warriorname = scanner.nextLine();
+					return new CharacterWarrior(Warriorname);
+				case 2:
+					System.out.print("Enter Character name: ");
+					String Magename = scanner.nextLine();
+					return new CharacterMage(Magename);
+				default: scanner.nextLine();
+			}
+		}
+	}
+
 }

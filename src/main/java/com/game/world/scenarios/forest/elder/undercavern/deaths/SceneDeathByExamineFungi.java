@@ -6,9 +6,10 @@ import com.game.world.scenarios.AbstractScene;
 public class SceneDeathByExamineFungi extends AbstractScene {
     public SceneDeathByExamineFungi(long id) {
         super(id);
-        this.setScenarioDescription("As you bend down to closely examine the phosphorescent fungi," +
-                " a subtle but deadly toxin is released into the air. Unbeknownst to you," +
-                " these seemingly harmless fungi are actually lethal when disturbed." +
-                " The toxic spores quickly overwhelm your senses, causing dizziness and weakness and eventually death!");
+        this.setScenarioDescription("As the toxic spores overwhelm you, a radiant angel descends," +
+                " countering the toxin's effects. Cradled in its arms," +
+                " you're carried safely through the phosphorescent forest." +
+                " The angel's reassuring words guide you," +
+                " and you find yourself at the forest's edge, spared from the lethal fungi's grasp");
     }
 }

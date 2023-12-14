@@ -1,6 +1,8 @@
 package com.game.engine;
 
 import com.game.characters.AbstractCharacter;
+import com.game.characters.CharacterMage;
+import com.game.characters.CharacterWarrior;
 import com.game.utils.PrintDashes;
 import com.game.world.World;
 import com.game.world.scenarios.AbstractScene;
@@ -68,7 +70,6 @@ public class GameEngine {
 
         play();
     }
-
     private void executeScene(int userChoice) {
         int[][] points = world.getCurrScene().getPointsArrayWarrior();
 
